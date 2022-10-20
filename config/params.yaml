@@ -1,0 +1,25 @@
+bag_recorder_node:
+    ros__parameters:
+        topic_name: ["chatter",
+                     "rov/control",
+                     "rov/control/gui",
+                     "barometer/data",
+                     "battery/data",
+                     "imu/data",
+                     "euler/data",
+                     "dvl/data",
+                     "dvl/position",
+                     "rov_mcu"]
+
+        topic_type: ["std_msgs/msg/String",
+                     "uuv_msgs/msg/Control",
+                     "uuv_msgs/msg/Control",
+                     "uuv_msgs/msg/Barometer",
+                     "uuv_msgs/msg/Battery",
+                     "sensor_msgs/msg/Imu",
+                     "geometry_msgs/msg/Vector3Stamped",
+                     "dvl_msgs/msg/DVL",
+                     "dvl_msgs/msg/DVLDR",
+                     "uuv_msgs/msg/RovActuators"]
+        # Active sensor quality of service
+        sensor_qos: [False, False, False, True, True, True, True, True, True, True]
