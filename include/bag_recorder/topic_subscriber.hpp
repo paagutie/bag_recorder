@@ -2,7 +2,7 @@
  * @example    topic_subscriber.hpp
  *
  * @author     Pablo Gutiérrez F. (paagutie)
- * @date       03/08/2022
+ * @date       20/10/2022
  */
 
 #ifndef ROSBAG_RECORDER_H
@@ -30,7 +30,7 @@ private:
     std::string ros_topic_type;
     std::shared_ptr<rosbag2_cpp::Writer> writer_;
     std::shared_ptr<bool> saveROSBag;
-    typename rclcpp::Subscription<rclcpp::SerializedMessage>::SharedPtr ros_sub;
+    typename rclcpp::Subscription<ROS_MSG>::SharedPtr ros_sub;
 
 
     void record_callback(std::shared_ptr<rclcpp::SerializedMessage> msg) const
@@ -38,7 +38,7 @@ private:
         if(*saveROSBag)
         {
             rclcpp::Time time_stamp = node->now();
-            writer_->write(*msg, ros_topic, ros_topic_type, time_stamp);
+            writer_->write(msg, ros_topic, ros_topic_type, time_stamp);
         }
     }
 
