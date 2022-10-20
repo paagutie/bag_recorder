@@ -4,7 +4,7 @@ Recording ROS2 bags from a node dynamically.
 With this plugin it is possible to use ROS2 bags dynamically. Just add the name, type and quality of service for each topic in the [params.yaml](config/params.yaml) file.
 
 ## Requirements
-- [ROS2](https://docs.ros.org/en/galactic/Installation.html) - galactic
+- [ROS2](https://docs.ros.org/en/humble/Installation.html) - humble
 - [uuv_msgs](https://github.com/paagutie/uuv_msgs) (not strictly)
 - [dvl_msgs](https://github.com/paagutie/dvl_msgs) (not strictly)
 
@@ -12,7 +12,7 @@ With this plugin it is possible to use ROS2 bags dynamically. Just add the name,
 ## Installation
 - Clone the repositories and compile them:
 ```
-$ source /opt/ros/galactic/setup.bash
+$ source /opt/ros/humble/setup.bash
 $ mkdir -p ~/ros2_ws/src
 $ cd ~/ros2_ws/src
 $ git clone https://github.com/paagutie/uuv_msgs.git
