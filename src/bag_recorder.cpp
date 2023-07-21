@@ -24,12 +24,14 @@ BagRecorder::BagRecorder(rclcpp::Node::SharedPtr node_) : node(node_)
   storage_options = rosbag2_storage::StorageOptions();
   storage_options.storage_id = "sqlite3";
 
-  rclcpp::QoS qos(rclcpp::KeepLast(10));
+  rclcpp::QoS qos(rclcpp::KeepLast(1));
+  qos.best_effort();
+  qos.durability_volatile();
+
   control_sub = node->create_subscription<std_msgs::msg::Bool>("rosbag/status",
                                                                 qos,
                                                                 std::bind(&BagRecorder::rosbag_control, this, _1));
 
-    
   //std::any_cast<std::shared_ptr<rosbag_recorder::TopicSubscriber<std_msgs::msg::String>>>(sub[0])->writer_ = writer_;
   //std::any_cast<std::shared_ptr<rosbag_recorder::TopicSubscriber<std_msgs::msg::String>>>(sub[0])->saveROSBag = true;
 }
